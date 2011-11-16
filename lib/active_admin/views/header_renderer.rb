@@ -12,14 +12,11 @@ module ActiveAdmin
       protected
 
       def title
-        if active_admin_application.site_title_img
-          '<img src="' + active_admin_application.site_title_img + '" id="site_title">'
+        if !active_admin_application.site_title_link || active_admin_application.site_title_link == ""
+          content_tag 'h1', active_admin_application.site_title, :id => 'site_title'
         else
-          if !active_admin_application.site_title_link || active_admin_application.site_title_link == ""
-            content_tag 'h1', active_admin_application.site_title, :id => 'site_title'
-          else
-            content_tag 'h1', link_to(active_admin_application.site_title, active_admin_application.site_title_link), :id => 'site_title'
-          end
+          #content_tag 'h1', link_to(active_admin_application.site_title, active_admin_application.site_title_link), :id => 'site_title'
+          '<img src="' + active_admin_application.site_title_link + '" id="site_title">'
         end
       end
 
