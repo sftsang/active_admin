@@ -16,7 +16,7 @@ module ActiveAdmin
           content_tag 'h1', active_admin_application.site_title, :id => 'site_title'
         else
           #content_tag 'h1', link_to(active_admin_application.site_title, active_admin_application.site_title_link), :id => 'site_title'
-          '<img src="' + active_admin_application.site_title_link + '" id="site_title">'
+          #'<img src="' + active_admin_application.site_title_link + '" id="site_title">'
           image_tag active_admin_application.site_title_link, :id => 'site_title'
         end
       end
