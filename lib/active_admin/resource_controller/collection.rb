@@ -67,6 +67,10 @@ module ActiveAdmin
         end
 
         def search(chain)
+          # make end date range search inclusive
+          if params[:q]
+            params[:q][:created_at_lte] = params[:q][:created_at_lte] + " 23:59"
+          end
           @search = chain.metasearch(clean_search_params(params[:q]))
           @search.relation
         end
